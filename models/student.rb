@@ -1,4 +1,5 @@
 require('PG')
+require_relative('../db/sql_runner')
 
 class Student
     attr_reader :id
@@ -12,11 +13,15 @@ class Student
         @age = options['age'].to_i
     end
 
+    def pretty_name()
+        return "#{@first_name} #{@second_name}"
+    end
+
     def save()
-        sql = "INSERT INTO hogwarts
+        sql = "INSERT INTO students
         (
             first_name,
-            second_name
+            second_name,
             house,
             age
         )
@@ -31,21 +36,21 @@ class Student
     end
 
     def delete()
-        sql = "DELETE FROM hogwarts
+        sql = "DELETE FROM students
         WHERE id = $1"
         values = [@id]
         SqlRunner.run( sql, values )
     end
 
     def self.all()
-        sql = "SELECT * FROM hogwarts"
+        sql = "SELECT * FROM students"
         students = SqlRunner.run( sql )
         result = students.map { |student| Student.new( student )}
         return result  
     end
 
     def self.find(id)
-        sql = "SELECT * FROM hogwarts
+        sql = "SELECT * FROM students
         WHERE id = $1"
         values = [id]
         student = SqlRunner.run( sql, values )

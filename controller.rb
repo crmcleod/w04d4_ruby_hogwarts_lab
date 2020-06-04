@@ -5,6 +5,7 @@ require( 'pry' )
 require_relative( './models/student.rb' )
 also_reload( './models/*')
 
-get '/hi' do
-  "Hello World"
+get '/students' do
+  @students = Student.all()
+  erb( :index )
 end
