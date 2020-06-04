@@ -28,7 +28,7 @@ Part 5
 - Create a view to create a new student
   - hard code a drop down of house names
 
-Part 6
+<!-- Part 6
 
 A house can be one of Gryffindor, Ravenclaw, Hufflepuff, or Slytherin and should be stored in the database with:
   - A name
@@ -47,6 +47,6 @@ Part 8
   - Add a method to Student to find a house() for the student
 
 Part 9
-  - Change the new student form to populate the drop down from the House table
+  - Change the new student form to populate the drop down from the House table -->
 
 
