@@ -1,22 +1,10 @@
-require_relative('./models/students')
-student1 = 
+require( 'sinatra' )
+require( 'sinatra/contrib/all' )
+require( 'pry' )
 
+require_relative( './models/student.rb' )
+also_reload( './models/*')
 
-
-# require_relative('../models/pizza_order')
-# pizza1 = PizzaOrder.new({
-#   "first_name" => "Walter",
-#   "last_name" => "White",
-#   "topping" => "Pepperoni",
-#   "quantity" => 1
-# })
-
-# pizza2 = PizzaOrder.new({
-#   "first_name" => "Jesse",
-#   "last_name" => "Pinkman",
-#   "topping" => "Italian Sausage",
-#   "quantity" => 12
-# })
-
-# pizza1.save
-# pizza2.save
+get '/hi' do
+  "Hello World"
+end

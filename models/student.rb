@@ -32,5 +32,26 @@ class Student
 
     def delete()
         sql = "DELETE FROM hogwarts
-        "
+        WHERE id = $1"
+        values = [@id]
+        SqlRunner.run( sql, values )
+    end
+
+    def self.all()
+        sql = "SELECT * FROM hogwarts"
+        students = SqlRunner.run( sql )
+        result = students.map { |student| Student.new( student )}
+        return result  
+    end
+
+    def self.find(id)
+        sql = "SELECT * FROM hogwarts
+        WHERE id = $1"
+        values = [id]
+        student = SqlRunner.run( sql, values )
+        resut = Student.new( student.first )
+        return result
+    end
+
+end
 

@@ -1,10 +1,10 @@
-DROP TABLE hogwarts;
+DROP TABLE students;
 
-CREATE TABLE hogwarts (
+CREATE TABLE students (
   id SERIAL primary key,
   first_name VARCHAR(255),
   second_name VARCHAR(255),
   house VARCHAR(255),
-  age INT(255)
+  age INT
 )
 
